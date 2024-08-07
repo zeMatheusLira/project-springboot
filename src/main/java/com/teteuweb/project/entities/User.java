@@ -1,9 +1,16 @@
 package com.teteuweb.project.entities;
 
+import jakarta.persistence.*;
+
 import java.io.Serializable;
 import java.util.Objects;
 
+@Entity
+@Table(name = "tb_user")
 public class User implements Serializable {//Serializable -> transformar objts em bytes
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)//para auto incrementar no banco
     private Long id;
     private String name;
     private String email;
