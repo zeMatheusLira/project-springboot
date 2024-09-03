@@ -1,5 +1,6 @@
 package com.teteuweb.project.entities.pk;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.teteuweb.project.entities.Order;
 import com.teteuweb.project.entities.Product;
 import jakarta.persistence.Embeddable;
