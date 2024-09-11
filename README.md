@@ -21,14 +21,16 @@ Este é um projeto desenvolvido utilizando o framework Spring Boot. O objetivo p
 
 ## Modelo de domínio
 
+![Modelo de domínio](img/Captura de tela 2024-09-11 190011.png)
 
 
 ## Instância de domínio
 
-
+![Instância de domínio](img/Captura de tela 2024-09-11 190100.png)
 
 ## Camadas lógicas 
 
+![Camadas lógicas ](img/Captura de tela 2024-09-11 190128.png)
 
 
 ## Instalação e Execução
