@@ -8,7 +8,7 @@ Este é um projeto desenvolvido utilizando o framework Spring Boot. O objetivo p
 
 - **CRUD completo**: Implementação das operações de criação, leitura, atualização e exclusão.
 - **Integração com banco de dados em memória usando JPA/Hibernate**: O projeto utiliza JPA com a implementação Hibernate para mapeamento objeto-relacional (ORM). A persistência de dados é feita em memória, sem a necessidade de um banco de dados externo. Isso é ideal para fins de desenvolvimento e testes rápidos.
-- - **Injeção de Dependências com `@Autowired`**: Uso do `@Autowired` do Spring para gerenciar a injeção de dependências entre componentes, facilitando a modularidade e o desacoplamento do código.
+- **Injeção de Dependências com `@Autowired`**: Uso do `@Autowired` do Spring para gerenciar a injeção de dependências entre componentes, facilitando a modularidade e o desacoplamento do código.
 - **Tratamento de exceções**: Customização de mensagens de erro com um sistema de exceções global.
 
 ## Tecnologias Utilizadas
@@ -21,16 +21,16 @@ Este é um projeto desenvolvido utilizando o framework Spring Boot. O objetivo p
 
 ## Modelo de domínio
 
-![Modelo de domínio](img/Captura de tela 2024-09-11 190011.png)
+![Modelo de domínio](https://github.com/zeMatheusLira/project-springboot/blob/main/img/Captura%20de%20tela%202024-09-11%20190011.png)
 
 
 ## Instância de domínio
 
-![Instância de domínio](img/Captura de tela 2024-09-11 190100.png)
+![Instância de domínio](https://github.com/zeMatheusLira/project-springboot/blob/main/img/Captura%20de%20tela%202024-09-11%20190100.png)
 
 ## Camadas lógicas 
 
-![Camadas lógicas ](img/Captura de tela 2024-09-11 190128.png)
+![Camadas lógicas ](https://github.com/zeMatheusLira/project-springboot/blob/main/img/Captura%20de%20tela%202024-09-11%20190128.png)
 
 
 ## Instalação e Execução
