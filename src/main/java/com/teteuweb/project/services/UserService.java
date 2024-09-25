@@ -1,5 +1,7 @@
 package com.teteuweb.project.services;
 
+import com.teteuweb.project.dtos.UserRequestDTO;
+import com.teteuweb.project.dtos.UserResponseDTO;
 import com.teteuweb.project.entities.User;
 import com.teteuweb.project.repositories.UserRepository;
 import com.teteuweb.project.services.exceptions.DatabaseException;
@@ -18,18 +20,23 @@ public class UserService {
 
     @Autowired
     private UserRepository repository;
+    @Autowired
+    private UserRepository userRepository;
 
-    public List<User> findAll() {
-        return repository.findAll();
+    public List<UserResponseDTO> findAll() {
+        List<User> users =  userRepository.findAll();
+        return users.stream().map(User::toResponseDTO).toList(); // converte cada entidade em DTO
     }
 
-    public User findById(Long id) {
-        Optional<User> obj = repository.findById(id);
-        return obj.orElseThrow(() -> new ResourceNotFoundException(id));
+    public UserResponseDTO findById(Long id) {
+        User user = repository.findById(id).orElseThrow(() -> new ResourceNotFoundException(id));
+        return user.toResponseDTO();
     }
 
-    public User insert(User obj) {
-        return repository.save(obj);
+    public UserResponseDTO insert(UserRequestDTO obj) {
+        User user = new User(obj); // converte o DTO para entidade
+        user = repository.save(user); // Salva a entidade
+        return user.toResponseDTO(); // Retorna o DTO de response
     }
 
     public void delete(Long id) {
