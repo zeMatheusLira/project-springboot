@@ -1,5 +1,6 @@
 package com.teteuweb.project.config;
 
+import com.teteuweb.project.dtos.UserRequestDTO;
 import com.teteuweb.project.entities.*;
 import com.teteuweb.project.entities.enums.OrderStatus;
 import com.teteuweb.project.repositories.*;
@@ -56,9 +57,11 @@ public class TestConfig implements CommandLineRunner {
 
         productRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5));
 
+        UserRequestDTO dto1 = new UserRequestDTO(null, "Maria Brown", "maria@gmail.com", "988888888", "123456");
+        UserRequestDTO dto2 = new UserRequestDTO(null, "Alex Green", "alex@gmail.com", "977777777", "123456");
 
-        User u1 = new User(null, "Maria Brown", "maria@gmail.com", "988888888", "123456");
-        User u2 = new User(null, "Alex Green", "alex@gmail.com", "977777777", "123456");
+        User u1 = new User(dto1);
+        User u2 = new User(dto2);
 
         Order o1 = new Order(null, Instant.parse("2019-06-20T19:53:07Z"), OrderStatus.PAID, u1);
         Order o2 = new Order(null, Instant.parse("2019-07-21T03:42:10Z"),OrderStatus.WAITING_PAYMENT, u2);

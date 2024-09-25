@@ -1,6 +1,8 @@
 package com.teteuweb.project.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.teteuweb.project.dtos.UserRequestDTO;
+import com.teteuweb.project.dtos.UserResponseDTO;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -28,12 +30,16 @@ public class User implements Serializable {//Serializable -> transformar objts e
     public User() {
     }
 
-    public User(Long id, String name, String email, String phone, String password) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-        this.phone = phone;
-        this.password = password;
+    public User(UserRequestDTO requestDTO) {
+        this.id = requestDTO.id();
+        this.name = requestDTO.name();
+        this.email = requestDTO.email();
+        this.phone = requestDTO.phone();
+        this.password = requestDTO.password();
+    }
+
+    public UserResponseDTO toResponseDTO() {
+        return new UserResponseDTO(this.id, this.name, this.email, this.phone);
     }
 
     public Long getId() {
