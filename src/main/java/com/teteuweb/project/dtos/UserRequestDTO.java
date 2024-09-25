@@ -1,4 +1,4 @@
 package com.teteuweb.project.dtos;
 
-public record UserRequestDTO(String name, String email, String phone, String password) {
+public record UserRequestDTO(Long id, String name, String email, String phone, String password) {
 }
