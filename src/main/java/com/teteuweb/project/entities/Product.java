@@ -1,14 +1,18 @@
 package com.teteuweb.project.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.teteuweb.project.dtos.CategoryResponseDTO;
+import com.teteuweb.project.dtos.ProductRequestDTO;
+import com.teteuweb.project.dtos.ProductResponseDTO;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
+import java.util.stream.Collectors;
 
-    @Entity
+@Entity
     @Table(name = "tb_product")
     public class Product implements Serializable {
 
@@ -33,12 +37,17 @@ import java.util.Set;
         public Product() {
         }
 
-        public Product(Long id, String name, String description, Double price, String imgUrl) {
-            this.id = id;
-            this.name = name;
-            this.description = description;
-            this.price = price;
-            this.imgUrl = imgUrl;
+        public Product(ProductRequestDTO dto){
+            this.name = dto.name();
+            this.description = dto.description();
+            this.price = dto.price();
+            this.imgUrl = dto.imgUrl();
+        }
+
+        public ProductResponseDTO productResponseDTO() {
+            Set<CategoryResponseDTO> categoriesResponseDTO = categories.stream().map(Category::categoryResponseDTO).collect(Collectors.toSet());
+
+            return new ProductResponseDTO(id, name, description, price, imgUrl, categoriesResponseDTO);
         }
 
         public void setId(Long id) {
