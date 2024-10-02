@@ -1,6 +1,8 @@
 package com.teteuweb.project.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.teteuweb.project.dtos.CategoryRequestDTO;
+import com.teteuweb.project.dtos.CategoryResponseDTO;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -24,10 +26,14 @@ public class Category implements Serializable {
     public Category() {
     }
 
-    public Category(Long id, String name) {
-        this.id = id;
-        this.name = name;
+    public Category(CategoryRequestDTO dto) {
+        this.name = dto.name();
     }
+
+    public CategoryResponseDTO categoryResponseDTO() {
+        return new CategoryResponseDTO(id, name);
+    }
+
 
     public Long getId() {
         return id;

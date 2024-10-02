@@ -1,5 +1,6 @@
 package com.teteuweb.project.resources;
 
+import com.teteuweb.project.dtos.ProductResponseDTO;
 import com.teteuweb.project.entities.Product;
 import com.teteuweb.project.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,14 +20,14 @@ public class ProductResource {
     private ProductService service;
 
     @GetMapping
-    public ResponseEntity<List<Product>> findAll() {
-        List<Product> list = service.findAll();
+    public ResponseEntity<List<ProductResponseDTO>> findAll() {
+        List<ProductResponseDTO> list = service.findAll();
         return ResponseEntity.ok().body(list);
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Product> findById(@PathVariable Long id) {
-        Product obj = service.findById(id);
+    public ResponseEntity<ProductResponseDTO> findById(@PathVariable Long id) {
+        ProductResponseDTO obj = service.findById(id);
         return ResponseEntity.ok().body(obj);
     }
 

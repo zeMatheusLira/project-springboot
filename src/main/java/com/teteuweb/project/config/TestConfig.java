@@ -1,5 +1,8 @@
 package com.teteuweb.project.config;
 
+import com.teteuweb.project.dtos.CategoryRequestDTO;
+import com.teteuweb.project.dtos.CategoryResponseDTO;
+import com.teteuweb.project.dtos.ProductRequestDTO;
 import com.teteuweb.project.dtos.UserRequestDTO;
 import com.teteuweb.project.entities.*;
 import com.teteuweb.project.entities.enums.OrderStatus;
@@ -34,15 +37,25 @@ public class TestConfig implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        Category cat1 = new Category(null, "Electronics");
-        Category cat2 = new Category(null, "Books");
-        Category cat3 = new Category(null, "Computers");
+        CategoryRequestDTO dtoCat1 = new CategoryRequestDTO("Electronics");
+        CategoryRequestDTO dtoCat2 = new CategoryRequestDTO("Books");
+        CategoryRequestDTO dtoCat3 = new CategoryRequestDTO("Computers");
 
-        Product p1 = new Product(null, "The Lord of the Rings", "Lorem ipsum dolor sit amet, consectetur.", 90.5, "");
-        Product p2 = new Product(null, "Smart TV", "Nulla eu imperdiet purus. Maecenas ante.", 2190.0, "");
-        Product p3 = new Product(null, "Macbook Pro", "Nam eleifend maximus tortor, at mollis.", 1250.0, "");
-        Product p4 = new Product(null, "PC Gamer", "Donec aliquet odio ac rhoncus cursus.", 1200.0, "");
-        Product p5 = new Product(null, "Rails for Dummies", "Cras fringilla convallis sem vel faucibus.", 100.99, "");
+        Category cat1 = new Category(dtoCat1);
+        Category cat2 = new Category(dtoCat2);
+        Category cat3 = new Category(dtoCat3);
+
+        ProductRequestDTO dtoP1 = new ProductRequestDTO("The Lord of the Rings", "Lorem ipsum dolor sit amet, consectetur.", 90.5, "", null);
+        ProductRequestDTO dtoP2 = new ProductRequestDTO( "Smart TV", "Nulla eu imperdiet purus. Maecenas ante.", 2190.0, "",null);
+        ProductRequestDTO dtoP3 = new ProductRequestDTO( "Macbook Pro", "Nam eleifend maximus tortor, at mollis.", 1250.0, "", null);
+        ProductRequestDTO dtoP4 = new ProductRequestDTO( "PC Gamer", "Donec aliquet odio ac rhoncus cursus.", 1200.0, "", null);
+        ProductRequestDTO dtoP5 = new ProductRequestDTO( "Rails for Dummies", "Cras fringilla convallis sem vel faucibus.", 100.99, "", null);
+
+        Product p1 = new Product(dtoP1);
+        Product p2 = new Product(dtoP2);
+        Product p3 = new Product(dtoP3);
+        Product p4 = new Product(dtoP4);
+        Product p5 = new Product(dtoP5);
 
         categoryRepository.saveAll(Arrays.asList(cat1, cat2, cat3));
 

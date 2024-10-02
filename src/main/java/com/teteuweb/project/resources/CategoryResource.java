@@ -1,5 +1,6 @@
 package com.teteuweb.project.resources;
 
+import com.teteuweb.project.dtos.CategoryResponseDTO;
 import com.teteuweb.project.entities.Category;
 import com.teteuweb.project.services.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
